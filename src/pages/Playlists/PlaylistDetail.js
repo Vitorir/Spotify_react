@@ -5,7 +5,7 @@ import playlists from "./playlists";
 function PlaylistDetail() {
     const { id }= useParams(); // desestruturar
     
-    const play = playlists.find((p) => {});
+    const play = playlists.find(id => id > 0);
     
 
     // map() ou for das musicas de play

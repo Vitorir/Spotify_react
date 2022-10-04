@@ -7,26 +7,41 @@ function Cadastro() {
   const [senha, setSenha] = useState("");
   const [confirmSenha, setConfirmSenha] = useState("")
 
-function handleSubmit(e){ 
-  e.preventDefault();
+  const [validacaoLogin, setValidacaoLogin] = useState("");
+  const [validacaoSenha, setValidacaoSenha] = useState("");
 
-  const users ={
-    login,
-    confirmLogin,
-    senha,
-    confirmSenha
+  function handleSubmit(e){ 
+    e.preventDefault();
+
+    if(confirmLogin !== login) {
+      setValidacaoLogin("Email diferente");
+      return;
+    }
+    setValidacaoLogin("");
+
+    if(confirmSenha !== senha) {
+      setValidacaoSenha("Senha diferente");
+      return;
+    }
+    setValidacaoSenha("");
+
+    const users ={
+      login,
+      confirmLogin,
+      senha,
+      confirmSenha
+    }
+
+    user.push()
+
+    console.log(users)
   }
-
-  user.push()
-
-  console.log(users)
-}
 
   return (
     <div className="container mt-5">
       <form className="row justify-content-center" onSubmit={ e => handleSubmit(e)}>
         <div className="col-md-6 mb-md-5">
-          <label for="inputEmail" className="form-label">
+          <label htmlFor="inputEmail" className="form-label">
             Qual o seu email?
           </label>
           <input
@@ -39,7 +54,7 @@ function handleSubmit(e){
           />
         </div>
         <div className="col-md-6">
-          <label for="inputEmail2" className="form-label">
+          <label htmlFor="inputEmail2" className="form-label">
             Confirme seu email
           </label>
           <input
@@ -50,9 +65,10 @@ function handleSubmit(e){
             required
             placeholder="seuemail@dominio.com"
           />
+          <p className="text-danger">{ validacaoLogin }</p>
         </div>
         <div className="col-md-6 mb-md-5">
-          <label for="inputPassword" className="form-label">
+          <label htmlFor="inputPassword" className="form-label">
             Crie sua senha
           </label>
           <input
@@ -65,7 +81,7 @@ function handleSubmit(e){
           />
         </div>
         <div className="col-md-6">
-          <label for="inputPassword2" className="form-label">
+          <label htmlFor="inputPassword2" className="form-label">
             Confirme sua senha
           </label>
           <input
@@ -76,9 +92,10 @@ function handleSubmit(e){
             required
             placeholder="Digite a sua senha"
           />
+          <p className="text-danger">{ validacaoSenha }</p>
         </div>
         <div className="col-md-6 mb-md-5">
-          <label for="inputName" className="form-label">
+          <label htmlFor="inputName" className="form-label">
             Como devemos chamar você?
           </label>
           <input
@@ -102,7 +119,7 @@ function handleSubmit(e){
                 id="gridRadios1"
                 value="option1"
               />
-              <label className="form-check-label" for="gridRadios1">
+              <label className="form-check-label" htmlFor="gridRadios1">
                 Masculino
               </label>
             </div>
@@ -114,7 +131,7 @@ function handleSubmit(e){
                 id="gridRadios2"
                 value="option2"
               />
-              <label className="form-check-label" for="gridRadios2">
+              <label className="form-check-label" htmlFor="gridRadios2">
                 Feminino
               </label>
             </div>
@@ -126,7 +143,7 @@ function handleSubmit(e){
                 id="gridRadios3"
                 value="option3"
               />
-              <label className="form-check-label" for="gridRadios3">
+              <label className="form-check-label" htmlFor="gridRadios3">
                 Não binário
               </label>
             </div>
@@ -139,7 +156,7 @@ function handleSubmit(e){
               type="checkbox"
               id="gridCheck"
             />
-            <label className="form-check-label" for="gridCheck">
+            <label className="form-check-label" htmlFor="gridCheck">
               Deseja receber notificações do Spotify por email?
             </label>
           </div>
@@ -149,7 +166,7 @@ function handleSubmit(e){
               type="checkbox"
               id="gridCheck"
             />
-            <label className="form-check-label" for="gridCheck">
+            <label className="form-check-label" htmlFor="gridCheck">
               Concordo com os{" "}
               <a
                 href="https://www.spotify.com/br/legal/end-user-agreement/"

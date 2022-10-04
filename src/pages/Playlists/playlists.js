@@ -14,8 +14,7 @@ const playlists = [ // vetor de objetos, cada um uma playlist, a qual tera uma p
                 nome: 'Bohemian Rhapsody',
                 arquivo: './tracks/Queen-BohemianRhapsody.mp3' // pegar um arquivo de audio
             }
-        ]
-        
+        ]  
     },
     {
         id: 2,
@@ -25,12 +24,12 @@ const playlists = [ // vetor de objetos, cada um uma playlist, a qual tera uma p
             {
                 id: 1,
                 nome: 'Let it be',
-                arquivo: 'm1.mp3' // pegar um arquivo de audio
+                arquivo: './tracks/LetItBe.mp3' // pegar um arquivo de audio
             },
             {
                 id: 2,
                 nome: 'Dont Let Me Down',
-                arquivo: 'm1.mp3' // pegar um arquivo de audio
+                arquivo: './tracks/TheBeatles-DontLetMeDown.mp3' // pegar um arquivo de audio
             }
         ]
         
@@ -94,12 +93,12 @@ const playlists = [ // vetor de objetos, cada um uma playlist, a qual tera uma p
             {
                 id: 1,
                 nome: 'Let it be',
-                arquivo: './tracks/LetItBe.m4a' // pegar um arquivo de audio
+                arquivo: './tracks/' // pegar um arquivo de audio
             },
             {
                 id: 2,
                 nome: 'Dont Let Me Down',
-                arquivo: 'm1.mp3' // pegar um arquivo de audio
+                arquivo: './tracks/' // pegar um arquivo de audio
             }
         ]
     },
