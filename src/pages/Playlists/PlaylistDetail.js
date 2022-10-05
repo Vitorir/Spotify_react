@@ -5,13 +5,14 @@ import playlists from "./playlists";
 function PlaylistDetail() {
     const { id }= useParams(); // desestruturar
     
-    const play = playlists.find(id => id > 0);
-    
+
+    const play = playlists.find((p) => p.id == id);
+
 
     // map() ou for das musicas de play
     const musicas = play.musicas.map(m => {
         return (
-            <audio>
+            <audio controls>
                 <source src={m.arquivo}></source>
             </audio>
         )
@@ -20,6 +21,8 @@ function PlaylistDetail() {
     return (
         <>
         <div>{play.nome}</div>
+        <img src={play.capa}></img>
+        <div>{musicas}</div>
         </>
     )
 }
