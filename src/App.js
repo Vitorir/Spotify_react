@@ -19,6 +19,7 @@ function App() {
         <Route path='/' element={<Home/>} />
         <Route path='/playlists/:id' element={<PlaylistDetail/>} /> 
         <Route path='/signup' element={<UserSignup/>} /> 
+        <Route path='/signup' element={<UserSignup />} />
       </Routes>
       <Footer/>
     </BrowserRouter>

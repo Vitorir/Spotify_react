@@ -1,16 +1,26 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import playlists from "./playlists";
+//import playlists from "./playlists";
 // percorrer com id x e mostrar as musicas()
 
 function PlaylistDetail() {
     const { id }= useParams(); // desestruturar
-    
+    const [playlist, setPlaylist] = useState({
+      musicas: []
+    })
 
-    const play = playlists.find((p) => p.id == id);
+    useEffect(() => {
+      async function fetchData() {
+        const res = await axios.get("http://localhost:3001/playlists/"+ id)
+        setPlaylist(res.data);
+      }
+      fetchData();
+    }, [])
 
 
     // map() ou for das musicas de play
-    const musicas = play.musicas.map(m => {
+    const musicas = playlist.musicas.map(m => {
         return (
             <audio controls>
                 <source src={m.arquivo}></source>
@@ -70,11 +80,11 @@ function PlaylistDetail() {
         <div className="col-10 bg-dark text-white">
           <div className="">
             <div id="">
-              <h4>{play.nome}</h4>
+              <h4>{playlist.nome}</h4>
               <div className="container">
                 <br />
                 <div className="row">
-                    <img src={play.capa} alt="" width={50} height={500}></img>
+                    <img src={playlist.capa} alt="" width={50} height={500}></img>
                     <div>{musicas}</div>
                   
                 </div>

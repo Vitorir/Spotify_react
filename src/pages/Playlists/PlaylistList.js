@@ -1,10 +1,28 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import playlists from "./playlists";
+//import playlists from "./playlists";
 
 // listar as playlists dinamicamente
 function PlaylistList() {
+  const [playlists, setPlaylists] = useState([]);
 
-    const dados = playlists.map( (play) => {
+  useEffect( () => { //
+      axios.get("http://localhost:3001/playlists").then( (res) => { // chamada assincrona; retorna uma promise
+      setPlaylists = res.data; // registra nessa promessa obj de resposta do http
+  }) // quando atualizar o state, ele atualiza as playlists
+  }, []) // vai ter que encadear mts promises
+
+
+  useEffect(() => {
+    async function listarPlaylists() {
+      const res = await axios.get("http://localhost:3001/playlists")  
+      setPlaylists(res.data);
+  }
+  }, [])
+
+
+    const res = playlists.map( (play) => {
         return (
         <div className="col-sm-2">
             <Link to={`/playlists/${play.id}`}>
@@ -30,7 +48,7 @@ function PlaylistList() {
 
     return (
         <div>
-        {dados} 
+        {res}
         </div>
         )
 }
