@@ -18,6 +18,9 @@ function PlaylistDetail() {
       fetchData();
     }, [])
 
+    // PUT
+    // POST / DELETE
+
 
     // map() ou for das musicas de play
     const musicas = playlist.musicas.map(m => {

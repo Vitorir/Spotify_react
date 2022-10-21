@@ -26,12 +26,12 @@
                 {
                     "id": 1,
                     "nome": "Let it be",
-                    "arquivo": "m1.mp3" 
+                    "arquivo": "/tracks/LetItBe.mp3" 
                 },
                 {
                     "id": 2,
                     "nome": "Dont Let Me Down",
-                    "arquivo": "m1.mp3" 
+                    "arquivo": "/tracks/TheBeatles-DontLetMeDown.mp3" 
                 }
             ]
             
@@ -144,6 +144,10 @@
             "nome": "Vitor",
             "email": "vitorireboucas@edu.unifor.br"
         }
+    ],
+    
+    "musicas": [
+
     ]
 
 }

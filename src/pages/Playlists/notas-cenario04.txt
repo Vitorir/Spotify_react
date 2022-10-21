@@ -1,0 +1,80 @@
+# Cenário 4
+## Alterar 3 funcionalidades para usar HTTP
+adaptar pra utilizar chamadas HTTP assíncronas
+## Criar 5 novas
+- LOGIN/LOGOUT
+- EDITAR USUARIO
+- Cadastrar Playlist Privada {post} // depende do usuario
+- Buscar Música por Nome {get}
+- Inserir/Excluir Música na Playlist {put} sobrescrever
+
+1. Chamada Assíncrona
+- faz a chamada assincrona, guarda a funçao, esperando a resposta, enquanto executa a outra
+- Requisicao síncrona: computa o programa, quando chegar na instrucao de requisicao, espera a esposta pra continuar
+2. JSON-SERVER
+- servidor falso
+- sobe os serviços CRUD para as entidades do arquivo json;
+3. REST
+- verbos http são padronizados;
+4. API
+- conjunto de serviços para fornecer ao usuario;
+CRUD: a url pra operacao é a mesma pra todos
+- GET /playlist : listar as playlists; passar objeto playlist no [corpo da requisição] {}
+- POST /playlist inserir nova playlist;
+- PUT /playlist/:id atualizar;
+- DELETE
+
+[Entidades]
+playlist
+usuarios
+musicas: entidade independente da playlist
+vai buscar no banco de musicas
+
+5. AXIOS
+- biblioteca que facilite o processo de requisicao
+6. PROMISSES
+------------------------------------------------------------------------------
+1. npm install json-server
+db.json
+- criar tabelas
+Rodando json-server
+localhost:3001/playlist/2
+[buscar pelo like] localhost:3001/playlist?nome_like=o
+npx json-server -- watch db.json
+
+Usar na implementação
+
+qualquer atualizacao no state, atualiza o componente da pagina
+hook state
+useEffect
+capturar eventos do ciclo de vida do componente
+- quando for renderizado
+matou o mock, e está vindo do banco de dados
+-------------------------------------------------------------------------------
+npm install axios
+import axios from "axios"
+
+async function cadastrarUsuario() {
+	const res = await axios.get("localhost:3000")
+	setPlaylists(res.data)
+}
+
+axios.post("localhost:3000/usuarios), {usuario} // passar como parametro
+------------------------------------------------------------------------------
+1. installar json-server
+2. criar db.json
+3. iniciar json-server --watch db.json (ficar esperando requisições)
+4. criar vetor de playlists e de usuarios no db.json
+"uma vez logado, o usuario pode criar uma playlist para si"
+--------------------------------------------------------------------------------
+Tela Inicial de login;
+Botão/imagem com nome de usuário na barra de menu;
+Tela de criação de playlists;
+	- botão  de inserção e exclusão ao lado da música;
+Tela de busca de musicas com opções nome e cantor;
+
+botao criar usuario, playlists privadas: fazer condicoes de exibir só se tiver logado, (boolean)
+editar perfil, igual do cadastro
+
+entidade musicas dentro de db.json
+listagem de playlist buscar e inserir, excluir no playlistdetail - CRUD
