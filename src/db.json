@@ -146,7 +146,52 @@
         }
     ],
     
-    "musicas": [
+    "musicas": [{
+        "id": 1,
+        "nome": "Sweet Child O Mine",
+        "arquivo": "/tracks/GunsNRoses-SweetChildOMine.mp3" 
+    },
+    {
+        "id": 2,
+        "nome": "Bohemian Rhapsody",
+        "arquivo": "/tracks/Queen-BohemianRhapsody.mp3"
+    },{
+        "id": 3,
+        "nome": "Let it be",
+        "arquivo": "/tracks/LetItBe.mp3" 
+    },
+    {
+        "id": 4,
+        "nome": "Dont Let Me Down",
+        "arquivo": "/tracks/TheBeatles-DontLetMeDown.mp3" 
+    },{
+        "id": 5,
+        "nome": "John Coltrane - In A Sentimental Mood",
+        "arquivo": "/tracks/JohnColtrane-InASentimentalMood.mp3" 
+    },
+    {
+        "id": 6,
+        "nome": "I Fall In Love Too Easily",
+        "arquivo": "/tracks/IFallInLoveTooEasily.mp3" 
+    },{
+        "id": 7,
+        "nome": "Garota De Ipanema",
+        "arquivo": "/tracks/GarotaDeIpanema.mp3" 
+    },
+    {
+        "id": 8,
+        "nome": "Chega De Saudade",
+        "arquivo": "/tracks/ChegaDeSaudade.mp3" 
+    },{
+        "id": 9,
+        "nome": "Lindecis - Soulful",
+        "arquivo": "/tracks/Lindecis-Soulful.mp3" 
+    },
+    {
+        "id": 10,
+        "nome": "RUDE - Eternal Youth",
+        "arquivo": "/tracks/RUDE-EternalYouth.mp3" 
+    }
 
     ]
 

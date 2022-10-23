@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 function PlaylistDetail() {
     const { id }= useParams(); // desestruturar
-    const [playlist, setPlaylist] = useState({
+    const [playlist, setPlaylist] = useState( {
       musicas: []
     })
 

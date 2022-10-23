@@ -76,5 +76,4 @@ Tela de busca de musicas com opções nome e cantor;
 botao criar usuario, playlists privadas: fazer condicoes de exibir só se tiver logado, (boolean)
 editar perfil, igual do cadastro
 
-entidade musicas dentro de db.json
 listagem de playlist buscar e inserir, excluir no playlistdetail - CRUD
