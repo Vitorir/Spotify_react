@@ -6,6 +6,10 @@ import { useParams } from "react-router-dom";
 
 function PlaylistDetail() {
     const { id }= useParams(); // desestruturar
+    const [ privada, setPrivada ] = useState( {
+      tracks: []
+    })
+    
     const [playlist, setPlaylist] = useState( {
       musicas: []
     })
@@ -15,11 +19,15 @@ function PlaylistDetail() {
         const res = await axios.get("http://localhost:3001/playlists/"+ id)
         setPlaylist(res.data);
       }
+      async function fetchDados() {
+        const resposta = await axios.get("http://localhost:3001/playlists-privadas/"+ id)
+        setPrivada(resposta.data)
+      }
       fetchData();
+      fetchDados();
     }, [])
 
-    // PUT
-    // POST / DELETE
+    
 
 
     // map() ou for das musicas de play
@@ -29,6 +37,15 @@ function PlaylistDetail() {
                 <source src={m.arquivo}></source>
             </audio>
         )
+    })
+
+    // map das privadas
+    const tracks = privada.musicas.map(t => {
+      return(
+        <audio controls>
+          <source src={t.arquivo}></source>
+        </audio>
+      )
     })
 
     return (

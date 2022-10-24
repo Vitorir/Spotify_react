@@ -9,17 +9,10 @@ function PlaylistList() {
 
   useEffect( () => { //
       axios.get("http://localhost:3001/playlists").then( (res) => { // chamada assincrona; retorna uma promise
-      setPlaylists = res.data; // registra nessa promessa obj de resposta do http
+      setPlaylists(res.data); // registra nessa promessa obj de resposta do http
   }) // quando atualizar o state, ele atualiza as playlists
   }, []) // vai ter que encadear mts promises
 
-
-  useEffect(() => {
-    async function listarPlaylists() {
-      const res = await axios.get("http://localhost:3001/playlists")  
-      setPlaylists(res.data);
-  }
-  }, [])
 
 
     const res = playlists.map( (play) => {
