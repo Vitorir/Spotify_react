@@ -15,7 +15,7 @@ function Header(){
               <Link className="nav-link" to="/register">Inscrever-se</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/">Entrar</Link> 
+              <Link className="nav-link" to="/signin">Entrar</Link> 
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/Profile">Perfil</Link> 

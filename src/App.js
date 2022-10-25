@@ -7,8 +7,8 @@ import CriarPlaylist from './pages/Playlists/CriarPlaylist';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import PlaylistList from './pages/Playlists/PlaylistList';
 import PlaylistDetail from './pages/Playlists/PlaylistDetail';
-import UserSignup from './pages/Users/UserSignup';
 import Profile from './pages/Profile';
+import UserSignin from './pages/Users/UserSignin';
 
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
         <Route path='/playlists/:id' element={<PlaylistDetail />} /> 
         <Route path='/playlists-privadas/:id' element={<PlaylistDetail />} /> 
         <Route path='/criarplaylist' element={<CriarPlaylist />} /> 
-        <Route path='/signup' element={<UserSignup />} />
+        <Route path='/signin' element={<UserSignin />} />
         <Route path='/profile' element={<Profile />} />
       </Routes>
       <Footer/>
