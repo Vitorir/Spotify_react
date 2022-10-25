@@ -40,7 +40,6 @@ function Home() {
 } );
 
 
-
 // PLaylists privadas
 const [privadas, setPrivadas] = useState([])
 

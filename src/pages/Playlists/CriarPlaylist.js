@@ -13,17 +13,27 @@ function CriarPlaylist() {
     const baseURL = "http://localhost:3001/playlists-privadas"
 
 
+    // Criar playlist
     useEffect(() => {
       async function createPlaylist() {
-        const res = await axios.post(`http://localhost:3001/playlists-privadas`);
+        const res = await axios.post(`http://localhost:3001/playlists-privadas/${id}`);
         setPlay(res.data);
     }
     createPlaylist();
     }, [])
 
-    // buscador react, filter()
-    // musicas.push
+    function criar() {
+      axios.post(`http://localhost:3001/playlists-privadas/`, { // onde passo os dados?
+        id: "id",
+        nome: "nome",
+        capa: "capa",
+      })
+      .then(res => {
+        setPlay(res.data);
+    })
+  }
 
+    // get musicas
     useEffect(() => {
       async function fetchData() {
         const res = await axios.get("http://localhost:3001/musicas")
@@ -41,15 +51,7 @@ function CriarPlaylist() {
             </audio>
     )})
 
-    
-
-  
-
-    // mostrar capa e nome
-
-    // encontrar musicas -> get passando o find
-
-    // inserir/excluir musicas -> post/delete
+    // map da playlist
 
 
     return (
@@ -115,6 +117,11 @@ function CriarPlaylist() {
                    
                     <div><img src="/img/album.png" width={150} height={150}></img></div>
                     <div><p>Nome da Playlist</p></div>
+                      <div>
+                        <h1>{play.nome}</h1>
+                        <p>{play.capa}</p>
+                        <button onClick={criar}>Criar</button>
+                      </div>
                   </div>
 
                   <div>Lista de Músicas</div>
@@ -129,7 +136,8 @@ function CriarPlaylist() {
             <div className="col-6 text-white">
               <div>Buscar</div>
               <Container>
-                <Form.Control type="search" placeholder="Seach Songs" value={search} onChange={e => setSearch(e.target.value)} width={50}></Form.Control>
+                <Form.Control type="search" placeholder="Seach Songs" value={search} 
+                onChange={e => setSearch(e.target.value)} width={50}></Form.Control>
               </Container>
               {msc}
             </div>

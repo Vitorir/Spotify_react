@@ -11,9 +11,20 @@ function PlaylistDetail() {
       musicas: []
     })
 
+    // if logado?
+    // get das publicas
     useEffect(() => {
       async function fetchData() {
         const res = await axios.get("http://localhost:3001/playlists/"+ id)
+        setPlaylist(res.data);
+      }
+      fetchData();
+    }, [])
+
+    // get das privadas
+    useEffect(() => {
+      async function fetchData() {
+        const res = await axios.get("http://localhost:3001/playlists-privadas/"+ id)
         setPlaylist(res.data);
       }
       fetchData();
@@ -28,6 +39,9 @@ function PlaylistDetail() {
             </audio>
         )
     })
+
+
+
 
     return (
         <>

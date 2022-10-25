@@ -168,17 +168,17 @@
       ]
     },
     {
-      "id": 3
-    },
-    {
-      "id": 4
+      "id": "id",
+      "nome": "nome",
+      "capa": "capa"
     }
   ],
   "users": [
     {
       "id": 1,
       "nome": "Vitor",
-      "email": "vitorireboucas@edu.unifor.br"
+      "email": "vitorireboucas@edu.unifor.br",
+      "senha": "123"
     }
   ],
   "musicas": [
