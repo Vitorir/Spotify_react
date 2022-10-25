@@ -39,6 +39,8 @@ function Home() {
     )
 } );
 
+
+
 // PLaylists privadas
 const [privadas, setPrivadas] = useState([])
 
@@ -47,6 +49,8 @@ useEffect( () => { //
   setPrivadas(res.data);
 }) 
 }, []) 
+
+
 
 const data = privadas.map( (play) => {
   return (

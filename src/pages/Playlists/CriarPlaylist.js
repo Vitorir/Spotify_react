@@ -1,25 +1,49 @@
-// POST
 // criar uma playlist do usuario
 import axios from "axios";
 import { useEffect, useState } from "react";
-// import { Container, Form } from 'react-bootstrap'
+import { Container, Form } from 'react-bootstrap'
+import { useParams } from "react-router-dom";
 
 function CriarPlaylist() {
-    const [playlists, setPlaylists] = useState([])
+    const { id }= useParams(); 
+    const [ play, setPlay ] = useState([])
+    const [ musicas, setMusicas ] = useState([])
+    const [ search, setSearch ] = useState("")
 
     const baseURL = "http://localhost:3001/playlists-privadas"
 
 
     useEffect(() => {
       async function createPlaylist() {
-        const res = await axios.post("http://localhost:3001/playlists-privadas");
-        setPlaylists(res.data);
+        const res = await axios.post(`http://localhost:3001/playlists-privadas`);
+        setPlay(res.data);
     }
     createPlaylist();
     }, [])
 
+    // buscador react, filter()
+    // musicas.push
+
+    useEffect(() => {
+      async function fetchData() {
+        const res = await axios.get("http://localhost:3001/musicas")
+        setMusicas(res.data);
+      }
+      fetchData();
+    }, [])
+
+
+    // map das musicas
+    const msc = musicas.map( m => {
+      return (
+            <audio controls>
+                <source src={m.arquivo}></source>
+            </audio>
+    )})
+
     
 
+  
 
     // mostrar capa e nome
 
@@ -79,19 +103,21 @@ function CriarPlaylist() {
 
           
       <div className="col-10 bg-dark text-white">
+      <h5>Criação de Playlist</h5>
         <div className="container-fluid h-100">
           <div className="row justify-content-center h-100">
-            <div className="col-4 text-white">
+            <div className="col-6 text-white">
             <div className="col-4 text-white">
               <div id="">
-                <h4>Playlists Privadas</h4>
                 <div className="container">
                   <br />
                   <div className="row">
                    
-                    <div>Capa da Playlist</div>
-                    <div>Nome da Playlist</div>
+                    <div><img src="/img/album.png" width={150} height={150}></img></div>
+                    <div><p>Nome da Playlist</p></div>
                   </div>
+
+                  <div>Lista de Músicas</div>
                   
                 </div>
               </div>
@@ -99,22 +125,13 @@ function CriarPlaylist() {
 
             </div>
 
-            <div className="col-4 text-white">
-              <div>Listagem de musicas</div>
-              <div>musica</div>
-                    <div>musica</div>
-                    <div>musica</div>
-                    <div>musica</div>
-                    <div>musica</div>
-                    <div>musica</div>
-                    <div>musica</div>
-                    <div>musica</div>
-                    <div>musica</div>
-            </div>
 
-
-            <div className="col-4 text-white">
+            <div className="col-6 text-white">
               <div>Buscar</div>
+              <Container>
+                <Form.Control type="search" placeholder="Seach Songs" value={search} onChange={e => setSearch(e.target.value)} width={50}></Form.Control>
+              </Container>
+              {msc}
             </div>
 
           </div>
