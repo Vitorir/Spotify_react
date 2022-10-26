@@ -8,32 +8,51 @@ function CriarPlaylist() {
     const { id }= useParams(); 
     const [ play, setPlay ] = useState([])
     const [ musicas, setMusicas ] = useState([])
+    const [ musicasSelecionadas, setMusicasSelecionadas ] = useState([])
     const [ search, setSearch ] = useState("")
+    const [ capa, setCapa ] = useState("")
+    const [ nome, setNome ] = useState("")
+//    const [ register, handleSubmit, formState ] = useForm()
 
     const baseURL = "http://localhost:3001/playlists-privadas"
 
 
-    // Criar playlist
-    useEffect(() => {
+    // POST - Criar playlist
       async function createPlaylist() {
         const res = await axios.post(`http://localhost:3001/playlists-privadas/${id}`);
         setPlay(res.data);
     }
-    createPlaylist();
-    }, [])
 
-    function criar() {
-      axios.post(`http://localhost:3001/playlists-privadas/`, { // onde passo os dados?
-        id: "id",
-        nome: "nome",
-        capa: "capa",
+    function criar() { // como passo os dados?
+      axios.post(`http://localhost:3001/playlists-privadas/`, { 
+        nome: nome,
+        capa: capa,
+        musicas: []
       })
       .then(res => {
         setPlay(res.data);
     })
   }
+  
+  function alterarCapa() {
+    axios.patch(`http://localhost:3001/playlists-privadas/${id}`, {
+      capa: {capa}
+    })
+    .then(res => {
+      setCapa(res.data);
+    })
+  }
 
-    // get musicas
+  function alterarNome() {
+    axios.patch(`http://localhost:3001/playlists-privadas/${id}`, {
+      nome: {nome}
+    })
+    .then(res => {
+      setNome(res.data);
+    })
+  }
+
+    // GET musicas
     useEffect(() => {
       async function fetchData() {
         const res = await axios.get("http://localhost:3001/musicas")
@@ -42,16 +61,39 @@ function CriarPlaylist() {
       fetchData();
     }, [])
 
+    // PUT - update post
+    function updatePost() {
+      axios.put(`http://localhost:3001/playlists-privadas/${id}`, {
+        id: id,
+        nome: nome,
+        capa: capa,
+        musicas: musicasSelecionadas
+      })
+    }
+
+    function addMusica(musica) {
+      const atualizado = [...musicasSelecionadas, musica];
+      setMusicasSelecionadas(atualizado)
+    }
 
     // map das musicas
     const msc = musicas.map( m => {
       return (
+        <div> 
+          <p>{m.nome}</p>
             <audio controls>
-                <source src={m.arquivo}></source>
+              <source src={m.arquivo}></source>
             </audio>
+            <button onClick={updatePost} type="button" class="btn btn-light">Inserir</button>
+        </div>
+
     )})
 
     // map da playlist
+
+
+    // Filtrar
+
 
 
     return (
@@ -115,16 +157,29 @@ function CriarPlaylist() {
                   <br />
                   <div className="row">
                    
-                    <div><img src="/img/album.png" width={150} height={150}></img></div>
-                    <div><p>Nome da Playlist</p></div>
+                    <div>
+                      <img src="/img/album.png" width={150} height={150}></img>
+                      <input placeholder="URL da Capa" value={capa} onChange={e => setCapa(e.target.value)}></input>
+                      <button onClick={alterarCapa} type="submit" class="btn btn-light">Alterar Capa</button>
+                    </div>
+
+                    <div>
+                    <label>Nome da Playlist</label>
+                    <input placeholder="Nome da Playlist" value={nome} onChange={e => setNome(e.target.value)}></input>
+                    <button onClick={alterarNome} type="submit" class="btn btn-light">Alterar Nome</button>
+                    </div>
+
                       <div>
                         <h1>{play.nome}</h1>
                         <p>{play.capa}</p>
-                        <button onClick={criar}>Criar</button>
+                        <button onClick={criar} type="submit" class="btn btn-secondary">Criar</button>
                       </div>
                   </div>
 
-                  <div>Lista de Músicas</div>
+                  <div>
+                    Play.musicas
+                    {musicasSelecionadas.map(m => <p>m.nome</p>)}
+                  </div>
                   
                 </div>
               </div>

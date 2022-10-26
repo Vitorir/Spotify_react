@@ -171,6 +171,12 @@
       "id": "id",
       "nome": "nome",
       "capa": "capa"
+    },
+    {
+      "id": 5,
+      "nome": "nome",
+      "capa": "capa",
+      "musicas": []
     }
   ],
   "users": [

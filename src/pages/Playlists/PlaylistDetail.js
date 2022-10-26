@@ -92,22 +92,22 @@ function PlaylistDetail() {
             </li>
           </ul>
         </div>
-        <div className="col-10 bg-dark text-white">
-          <div className="">
-            <div id="">
-              <h4>{playlist.nome}</h4>
-              <div className="container">
-                <br />
-                <div className="row">
-                    <img src={playlist.capa} alt="" width={50} height={500}></img>
-                    <div>{musicas}</div>
-                  
+            <div className="col-10 bg-dark text-white">
+              <div className="">
+                <div id="">
+                  <h4>{playlist.nome}</h4>
+                  <div className="container">
+                    <br />
+                    <div className="row">
+                        <img src={playlist.capa} alt="" width={50} height={500}></img>
+                        <div>{musicas}</div>
+                      
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
 
-        </div>
+            </div>
       </div>
     </div>
 

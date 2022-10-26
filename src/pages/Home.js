@@ -47,7 +47,7 @@ useEffect( () => { //
   axios.get("http://localhost:3001/playlists-privadas").then( (res) => {
   setPrivadas(res.data);
 }) 
-}, []) 
+}, [])
 
 
 
