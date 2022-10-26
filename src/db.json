@@ -177,6 +177,45 @@
       "nome": "nome",
       "capa": "capa",
       "musicas": []
+    },
+    {
+      "nome": "bbb",
+      "capa": "aaa",
+      "musicas": [
+        {
+          "id": 1,
+          "nome": "Sweet Child O Mine",
+          "arquivo": "/tracks/GunsNRoses-SweetChildOMine.mp3"
+        },
+        {
+          "id": 2,
+          "nome": "Bohemian Rhapsody",
+          "arquivo": "/tracks/Queen-BohemianRhapsody.mp3"
+        }
+      ],
+      "id": 6
+    },
+    {
+      "nome": "baba",
+      "capa": "http://baba.com",
+      "musicas": [
+        {
+          "id": 1,
+          "nome": "Sweet Child O Mine",
+          "arquivo": "/tracks/GunsNRoses-SweetChildOMine.mp3"
+        },
+        {
+          "id": 2,
+          "nome": "Bohemian Rhapsody",
+          "arquivo": "/tracks/Queen-BohemianRhapsody.mp3"
+        },
+        {
+          "id": 3,
+          "nome": "Let it be",
+          "arquivo": "/tracks/LetItBe.mp3"
+        }
+      ],
+      "id": 7
     }
   ],
   "users": [

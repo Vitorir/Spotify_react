@@ -27,7 +27,7 @@ function CriarPlaylist() {
       axios.post(`http://localhost:3001/playlists-privadas/`, { 
         nome: nome,
         capa: capa,
-        musicas: []
+        musicas: musicasSelecionadas
       })
       .then(res => {
         setPlay(res.data);
@@ -71,7 +71,8 @@ function CriarPlaylist() {
       })
     }
 
-    function addMusica(musica) {
+    function addMusica(event, musica) {
+      event.preventDefault();
       const atualizado = [...musicasSelecionadas, musica];
       setMusicasSelecionadas(atualizado)
     }
@@ -84,7 +85,7 @@ function CriarPlaylist() {
             <audio controls>
               <source src={m.arquivo}></source>
             </audio>
-            <button onClick={updatePost} type="button" class="btn btn-light">Inserir</button>
+            <button onClick={(e) => addMusica(e, m)} type="button" class="btn btn-light">Inserir</button>
         </div>
 
     )})
@@ -160,13 +161,11 @@ function CriarPlaylist() {
                     <div>
                       <img src="/img/album.png" width={150} height={150}></img>
                       <input placeholder="URL da Capa" value={capa} onChange={e => setCapa(e.target.value)}></input>
-                      <button onClick={alterarCapa} type="submit" class="btn btn-light">Alterar Capa</button>
                     </div>
 
                     <div>
                     <label>Nome da Playlist</label>
                     <input placeholder="Nome da Playlist" value={nome} onChange={e => setNome(e.target.value)}></input>
-                    <button onClick={alterarNome} type="submit" class="btn btn-light">Alterar Nome</button>
                     </div>
 
                       <div>
@@ -178,7 +177,7 @@ function CriarPlaylist() {
 
                   <div>
                     Play.musicas
-                    {musicasSelecionadas.map(m => <p>m.nome</p>)}
+                    {musicasSelecionadas?.map(m => <p>{m.nome}</p>)}
                   </div>
                   
                 </div>
