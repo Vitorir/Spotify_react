@@ -146,7 +146,7 @@ const data = privadas.map( (play) => {
                 <br />
                 <div className="row">
                  
-                  <div className="col-sm-12 card-group"> 
+                  <div className="col-sm-12 card-group">  
                     {data}
                   </div>
                   

@@ -6,11 +6,6 @@
       "capa": "/img/beatlessmaller.webp",
       "musicas": [
         {
-          "id": 1,
-          "nome": "Sweet Child O Mine",
-          "arquivo": "/tracks/GunsNRoses-SweetChildOMine.mp3"
-        },
-        {
           "id": 2,
           "nome": "Bohemian Rhapsody",
           "arquivo": "/tracks/Queen-BohemianRhapsody.mp3"
@@ -168,19 +163,8 @@
       ]
     },
     {
-      "id": "id",
-      "nome": "nome",
-      "capa": "capa"
-    },
-    {
-      "id": 5,
-      "nome": "nome",
-      "capa": "capa",
-      "musicas": []
-    },
-    {
-      "nome": "bbb",
-      "capa": "aaa",
+      "nome": "aleatorio",
+      "capa": "xxxx",
       "musicas": [
         {
           "id": 1,
@@ -191,13 +175,50 @@
           "id": 2,
           "nome": "Bohemian Rhapsody",
           "arquivo": "/tracks/Queen-BohemianRhapsody.mp3"
+        },
+        {
+          "id": 3,
+          "nome": "Let it be",
+          "arquivo": "/tracks/LetItBe.mp3"
+        },
+        {
+          "id": 4,
+          "nome": "Dont Let Me Down",
+          "arquivo": "/tracks/TheBeatles-DontLetMeDown.mp3"
         }
       ],
-      "id": 6
+      "id": 8
     },
     {
-      "nome": "baba",
-      "capa": "http://baba.com",
+      "nome": "Pink Floyd",
+      "capa": "https://akamai.sscdn.co/tb/letras-blog/wp-content/uploads/2020/04/c23ce24-81aTawcGdmL._SL1500_-1024x855.jpg",
+      "musicas": [
+        {
+          "id": 1,
+          "nome": "Sweet Child O Mine",
+          "arquivo": "/tracks/GunsNRoses-SweetChildOMine.mp3"
+        },
+        {
+          "id": 4,
+          "nome": "Dont Let Me Down",
+          "arquivo": "/tracks/TheBeatles-DontLetMeDown.mp3"
+        },
+        {
+          "id": 5,
+          "nome": "John Coltrane - In A Sentimental Mood",
+          "arquivo": "/tracks/JohnColtrane-InASentimentalMood.mp3"
+        },
+        {
+          "id": 6,
+          "nome": "I Fall In Love Too Easily",
+          "arquivo": "/tracks/IFallInLoveTooEasily.mp3"
+        }
+      ],
+      "id": 9
+    },
+    {
+      "nome": "Pink-floyd",
+      "capa": "https://akamai.sscdn.co/tb/letras-blog/wp-content/uploads/2020/04/c23ce24-81aTawcGdmL._SL1500_-1024x855.jpg",
       "musicas": [
         {
           "id": 1,
@@ -215,7 +236,7 @@
           "arquivo": "/tracks/LetItBe.mp3"
         }
       ],
-      "id": 7
+      "id": 10
     }
   ],
   "users": [

@@ -14,17 +14,10 @@ function CriarPlaylist() {
     const [ nome, setNome ] = useState("")
 //    const [ register, handleSubmit, formState ] = useForm()
 
-    const baseURL = "http://localhost:3001/playlists-privadas"
-
 
     // POST - Criar playlist
-      async function createPlaylist() {
-        const res = await axios.post(`http://localhost:3001/playlists-privadas/${id}`);
-        setPlay(res.data);
-    }
-
-    function criar() { // como passo os dados?
-      axios.post(`http://localhost:3001/playlists-privadas/`, { 
+    function criar() {
+      axios.post(`http://localhost:3001/playlists-privadas/`, {
         nome: nome,
         capa: capa,
         musicas: musicasSelecionadas
@@ -94,6 +87,7 @@ function CriarPlaylist() {
 
 
     // Filtrar
+    
 
 
 
@@ -176,8 +170,10 @@ function CriarPlaylist() {
                   </div>
 
                   <div>
-                    Play.musicas
-                    {musicasSelecionadas?.map(m => <p>{m.nome}</p>)}
+                    {musicasSelecionadas?.map(m => <p>
+                      {m.nome}
+                      {}
+                    </p>)}
                   </div>
                   
                 </div>
@@ -193,6 +189,7 @@ function CriarPlaylist() {
                 <Form.Control type="search" placeholder="Seach Songs" value={search} 
                 onChange={e => setSearch(e.target.value)} width={50}></Form.Control>
               </Container>
+
               {msc}
             </div>
 

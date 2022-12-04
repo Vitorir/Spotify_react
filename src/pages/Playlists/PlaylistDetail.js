@@ -11,7 +11,6 @@ function PlaylistDetail() {
       musicas: []
     })
 
-    // if logado?
     // get das publicas
     useEffect(() => {
       async function fetchData() {
@@ -21,6 +20,7 @@ function PlaylistDetail() {
       fetchData();
     }, [])
 
+    
     // get das privadas
     useEffect(() => {
       async function fetchData() {
@@ -30,17 +30,39 @@ function PlaylistDetail() {
       fetchData();
     }, [])
 
+    function deletarMusica() {
+      axios.delete(`http://localhost:3001/playlists/${id}`)
+      .then( () => {
+        setPlaylist(null)
+      })
+    }
+
+    function deletar(e, idMusica) {
+      const index = playlist.musicas.findIndex( (m) => m.id == idMusica )
+      playlist.musicas.splice(index, 1)
+      atualizarPlaylist()
+    }
+
+    function atualizarPlaylist() {
+      axios.put(`http://localhost:3001/playlists/${id}`, playlist)
+      .then( (res) => {
+        setPlaylist(res.data)
+      })
+    }
+    
+
 
     // map() ou for das musicas de play
     const musicas = playlist.musicas.map(m => {
         return (
+          <div>
             <audio controls>
                 <source src={m.arquivo}></source>
             </audio>
+            <button onClick={(e) => deletar(e, m.id)} type="submit" class="btn btn-secondary">Deletar</button>
+            </div>
         )
     })
-
-
 
 
     return (
